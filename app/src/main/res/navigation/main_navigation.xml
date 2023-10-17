@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.albumsviewer.features.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profileFragment_to_photosFragment"
+            app:destination="@id/photosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.example.albumsviewer.features.albumDetails.PhotosFragment"
+        android:label="photos_fragment"
+        tools:layout="@layout/photos_fragment" >
+        <argument
+            android:name="album_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_photosFragment_to_photoViewerFragment"
+            app:destination="@id/photoViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoViewerFragment"
+        android:name="com.example.albumsviewer.features.photoViewer.PhotoViewerFragment"
+        android:label="photo_viewer_fragment"
+        tools:layout="@layout/photo_viewer_fragment" >
+        <argument
+            android:name="photo_url"
+            app:argType="string" />
+    </fragment>
+</navigation>
